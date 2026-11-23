@@ -1,110 +1,77 @@
 # BarberStyleFX
 
-**Sistema Gerenciador de Barbearia**
+### Sistema Gerenciador de Barbearia
 
-Projeto acadêmico desenvolvido para a disciplina de **Linguagem de Programação III**, do curso de Sistemas de Informação da Universidade Federal Rural do Rio de Janeiro (UFRRJ).
+**Universidade Federal Rural do Rio de Janeiro — UFRRJ**  
+**Curso:** Sistemas de Informação  
+**Disciplina:** Linguagem de Programação III  
+**Integrantes:** Pedro Perez e Elias da Silva  
+**Etapa:** PP1 — Primeira entrega
 
-**Autores:** Pedro Perez e Elias da Silva  
-**Entrega:** PP1 — Primeira etapa do projeto prático  
-**Linguagem:** Java  
-**Interface gráfica:** JavaFX  
-**Gerenciamento de dependências:** Maven
+## Sobre o projeto
 
-## 1. Descrição do projeto
+O BarberStyleFX é um sistema de gerenciamento de barbearia desenvolvido em Java, utilizando JavaFX para a construção da interface gráfica.
 
-O BarberStyleFX é um sistema de gerenciamento de barbearia desenvolvido com o objetivo de aplicar conceitos de Programação Orientada a Objetos em Java.
+A proposta do projeto é facilitar a organização de informações relacionadas ao funcionamento de uma barbearia, como o cadastro de clientes, barbeiros e serviços oferecidos.
 
-Nesta primeira etapa, foram implementadas funcionalidades de cadastro e consulta de clientes, barbeiros e serviços, utilizando uma interface gráfica construída com JavaFX.
+Nesta primeira etapa, nosso foco foi construir a estrutura inicial do sistema, aplicando os conceitos de Programação Orientada a Objetos estudados na disciplina e criando uma interface que permitisse realizar as operações básicas de cadastro e consulta.
 
-## 2. Funcionalidades implementadas
+## Funcionalidades desenvolvidas
 
-### Clientes
-- Cadastrar clientes com nome e telefone.
-- Consultar os clientes cadastrados.
-- Gerar um identificador para cada novo cliente.
+Até o momento, o sistema permite cadastrar clientes, informando nome e telefone, além de consultar os registros realizados.
 
-### Barbeiros
-- Cadastrar barbeiros com nome, telefone e valor da diária.
-- Consultar os barbeiros cadastrados.
-- Gerar um identificador para cada barbeiro.
+Também é possível cadastrar barbeiros, registrando seus dados e o valor da diária de cada profissional. Essas informações serão utilizadas futuramente para calcular os custos e o faturamento da barbearia.
 
-### Serviços
-- Cadastrar serviços com descrição, preço e duração em minutos.
-- Consultar os serviços disponíveis.
-- Gerar um identificador para cada serviço.
+Outra funcionalidade implementada é o cadastro de serviços, no qual podemos informar a descrição, o preço e a duração estimada de cada atendimento.
 
-Os formulários possuem validações básicas para impedir campos vazios e valores numéricos inválidos.
+A interface foi organizada em três áreas principais: Clientes, Barbeiros e Serviços. Cada uma possui as opções de cadastrar e consultar, permitindo navegar pelas funcionalidades de maneira simples.
 
-## 3. Conceitos de programação utilizados
+## Estrutura do código
 
-- **Classes e objetos:** representação de clientes, barbeiros, serviços e da própria barbearia.
-- **Encapsulamento:** utilização de atributos privados e métodos públicos.
-- **Herança:** as classes `Cliente` e `Barbeiro` herdam de `Pessoa`.
-- **Abstração:** utilização da classe abstrata `Pessoa`.
-- **Polimorfismo:** implementação do método `getTipo()` nas subclasses.
-- **Coleções:** utilização de `ArrayList` para armazenar os cadastros.
-- **Tratamento de exceções:** utilização de `try` e `catch` nos formulários.
-- **Eventos:** utilização de `setOnAction()` nos botões JavaFX.
+Para organizar o projeto, dividimos as responsabilidades entre diferentes classes.
 
-## 4. Organização das classes
+A classe `Pessoa` foi definida como abstrata e reúne informações comuns aos clientes e barbeiros. A partir dela, criamos as classes `Cliente` e `Barbeiro`, utilizando herança para reaproveitar atributos e métodos.
 
-| Classe | Responsabilidade |
-|---|---|
-| `Pessoa.java` | Classe abstrata com informações comuns de pessoas. |
-| `Cliente.java` | Representa os clientes da barbearia. |
-| `Barbeiro.java` | Representa os profissionais e seus valores de diária. |
-| `Servico.java` | Representa os serviços, preços e durações. |
-| `Barbearia.java` | Gerencia os cadastros por meio de listas e métodos. |
-| `HelloApplication.java` | Implementa a interface gráfica JavaFX. |
-| `Launcher.java` | Inicializa a aplicação. |
+A classe `Servico` representa os serviços oferecidos pela barbearia, enquanto `Barbearia` é responsável pelo gerenciamento dos cadastros e consultas.
 
-O projeto também contém arquivos de configuração do Maven e arquivos auxiliares gerados pelo IntelliJ IDEA.
+Utilizamos `ArrayList` para armazenar os objetos durante a execução e métodos específicos para adicionar e consultar os registros.
 
-## 5. Tecnologias utilizadas
+Na parte visual, utilizamos JavaFX para criar as janelas, os botões e os formulários. Também implementamos validações básicas e tratamento de exceções para lidar com dados preenchidos incorretamente.
 
-- Java
-- JavaFX
-- Maven
-- IntelliJ IDEA
-- Git e GitHub
+Com essa estrutura, buscamos manter o código organizado e facilitar a implementação de novas funcionalidades nas próximas etapas.
 
-## 6. Como executar
+## Tecnologias utilizadas
 
-1. Clonar ou baixar o repositório.
-2. Abrir o projeto no IntelliJ IDEA.
-3. Configurar um JDK compatível com o projeto.
-4. Aguardar o Maven carregar as dependências JavaFX.
-5. Executar a classe `Launcher.java`.
+O sistema foi desenvolvido em Java, com interface gráfica JavaFX. Utilizamos o IntelliJ IDEA como ambiente de desenvolvimento, Maven para gerenciar as dependências e GitHub para armazenar os arquivos e acompanhar as alterações realizadas no projeto.
 
-Após a inicialização, a interface apresenta três áreas principais: Clientes, Barbeiros e Serviços, cada uma com opções de cadastro e consulta.
+## Como executar
 
-## 7. Limitações da primeira entrega
+Para executar o BarberStyleFX, é necessário ter um JDK compatível com as dependências do projeto e utilizar um ambiente que permita executar aplicações JavaFX.
 
-Nesta etapa, os dados são armazenados em memória, utilizando `ArrayList`.
+O projeto pode ser aberto no IntelliJ IDEA. Após o carregamento das dependências pelo Maven, basta executar a classe `Launcher.java` para iniciar a interface gráfica.
 
-Isso significa que novos cadastros realizados durante a execução não são preservados após o encerramento do sistema.
+A janela principal apresenta as opções de cadastro e consulta de clientes, barbeiros e serviços.
 
-O projeto também possui registros fictícios utilizados para demonstrar o funcionamento das consultas.
+## Limitações e próximas etapas
 
-## 8. Próximas etapas
+Nesta primeira entrega, os dados ainda são armazenados temporariamente em memória. Por isso, os novos registros não permanecem salvos após o encerramento do programa. Também utilizamos alguns dados fictícios para testar as funcionalidades desenvolvidas.
 
-A continuidade do desenvolvimento prevê:
+Na próxima etapa, pretendemos ampliar o sistema com o agendamento de serviços por data e horário, registro de atendimentos realizados, cálculo de faturamento e custos dos barbeiros, além da integração com banco de dados.
 
-- Agendamento de atendimentos com data e horário.
-- Controle de atendimentos realizados.
-- Relatórios de faturamento e custos das diárias.
-- Persistência em banco de dados.
-- Registro de ocorrências e solicitações de reposição de materiais.
+Também planejamos incluir um controle de ocorrências e necessidades da barbearia, permitindo registrar problemas em equipamentos, solicitações de manutenção e reposição de materiais.
 
-Essas funcionalidades não fazem parte da implementação apresentada nesta primeira entrega.
+Essas melhorias fazem parte da continuidade do desenvolvimento e não estão implementadas nesta primeira versão.
 
-## 9. Autores
+## Considerações finais
 
-**Pedro Perez**  
-**Elias da Silva**
+A primeira etapa do BarberStyleFX permitiu colocar em prática conceitos importantes de Programação Orientada a Objetos, como classes, objetos, herança, encapsulamento, abstração, métodos e coleções.
 
-Universidade Federal Rural do Rio de Janeiro — UFRRJ  
-Curso de Sistemas de Informação  
-Disciplina de Linguagem de Programação III
+Além da implementação das funcionalidades iniciais, buscamos organizar o projeto de forma que seja possível continuar seu desenvolvimento sem precisar refazer toda a estrutura.
 
-**Status:** PP1 — Primeira entrega concluída; projeto em desenvolvimento.
+O BarberStyleFX permanece em desenvolvimento e será ampliado na segunda entrega da disciplina.
+
+---
+
+**Pedro Perez e Elias da Silva**  
+Sistemas de Informação — UFRRJ  
+2026
